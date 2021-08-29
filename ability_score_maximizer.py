@@ -30,23 +30,3 @@ def set_score(ability_index):
             set_score(ability_index+1)
 
 set_score(0)
-
-
-# for score in score_to_points:
-    # ability_scores[abilities[0]] = score
-    # for score in score_to_points:
-        # ability_scores[abilities[1]] = score
-        # for score in score_to_points:
-            # ability_scores[abilities[2]] = score
-            # for score in score_to_points:
-                # ability_scores[abilities[3]] = score
-                # for score in score_to_points:
-                    # ability_scores[abilities[4]] = score
-                    # for score in score_to_points:
-                        # ability_scores[abilities[5]] = score
-                        # if check_scores(ability_scores):
-                            # # True
-                            # print(ability_scores)
-
-# for score in score_to_points:
-    # print(score)
