@@ -28,8 +28,11 @@ def set_score(ability_index,ability_scores):
             ability_scores[abilities[ability_index]] = score
             set_score(ability_index+1, ability_scores)
 
+def print_possibilities(possibilities):
+    for possibility in possibilities:
+        print(possibility)
+
 possibilities = []
 set_score(0, {})
 
-for possibility in possibilities:
-    print(possibility)
+print_possibilities(possibilities)
