@@ -19,27 +19,23 @@ def check_scores(scores):
     else:
         return False
 
-def set_score(ability_index,ability_scores):
+def generates_scores(ability_index,ability_scores):
     if ability_index > 5:
         if check_scores(ability_scores):
             possibilities.append(ability_scores.copy())
     else:
         for score in score_to_points:
             ability_scores[abilities[ability_index]] = score
-            set_score(ability_index+1, ability_scores)
+            generates_scores(ability_index+1, ability_scores)
 
 def print_possibilities(possibilities):
     for possibility in possibilities:
-        print(
-                'strength: ' + str(possibility['strength']) + ', '
-                'dexterity: ' + str(possibility['dexterity']) + ', '
-                'constitution: ' + str(possibility['constitution']) + ', '
-                'intelligence: ' + str(possibility['intelligence']) + ', '
-                'wisdom: ' + str(possibility['wisdom']) + ', '
-                'charisma: ' + str(possibility['charisma'])
-                )
+        object_string = ''
+        for ability in abilities:
+            object_string += ability + ': ' + str(possibility[ability]) + ', '
+        print(object_string)
 
 possibilities = []
-set_score(0, {})
+generates_scores(0, {})
 
 print_possibilities(possibilities)
