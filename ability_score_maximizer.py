@@ -54,7 +54,18 @@ def order_possiblities(possibilities):
         ordered_possibilities[total_modifiers].append(possibility)
     return ordered_possibilities
 
+def modify_possibilities():
+    for possibility in possibilities:
+        for score_name in possibility:
+            possibility[score_name] += racial_modifiers[score_name]
+
+racial_modifiers = {}
+for ability in abilities:
+    racial_modifier = int(input(ability + ": "))
+    racial_modifiers[ability] = racial_modifier
+
 possibilities = generates_scores(0, {}, [])
+modify_possibilities()
 
 ordered_possibilities = order_possiblities(possibilities)
 
