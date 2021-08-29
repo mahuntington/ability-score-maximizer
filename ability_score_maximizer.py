@@ -36,5 +36,30 @@ def print_possibilities(possibilities):
             object_string += ability + ': ' + str(possibility[ability]) + ', '
         print(object_string)
 
+def determine_modifier(score):
+    return int((score - 10) / 2)
+
+def generate_ordered_scores_obj():
+    obj = {}
+    for i in range(0,19):
+        obj[i] = []
+    return obj
+
 possibilities = generates_scores(0, {}, [])
-print_possibilities(possibilities)
+
+ordered_possibilities = generate_ordered_scores_obj()
+
+for possibility in possibilities:
+    total_modifiers = 0
+    for score in possibility:
+        total_modifiers += determine_modifier(possibility[score])
+    ordered_possibilities[total_modifiers].append(possibility)
+
+for i in range(0,19):
+    if ordered_possibilities[i]:
+        print('=================')
+        print('')
+        print(i)
+        print('')
+        print('=================')
+        print_possibilities(ordered_possibilities[i])
