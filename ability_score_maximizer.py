@@ -9,7 +9,6 @@ score_to_points = {
         8:0
         }
 abilities = ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma']
-ability_scores = {}
 
 def check_scores(scores):
     total = 0
@@ -20,13 +19,13 @@ def check_scores(scores):
     else:
         return False
 
-def set_score(ability_index):
+def set_score(ability_index,ability_scores):
     if ability_index > 5:
         if check_scores(ability_scores):
             print(ability_scores)
     else:
         for score in score_to_points:
             ability_scores[abilities[ability_index]] = score
-            set_score(ability_index+1)
+            set_score(ability_index+1, ability_scores)
 
-set_score(0)
+set_score(0, {})
