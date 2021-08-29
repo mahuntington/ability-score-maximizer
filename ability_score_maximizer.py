@@ -30,7 +30,14 @@ def set_score(ability_index,ability_scores):
 
 def print_possibilities(possibilities):
     for possibility in possibilities:
-        print(possibility)
+        print(
+                'strength: ' + str(possibility['strength']) + ', '
+                'dexterity: ' + str(possibility['dexterity']) + ', '
+                'constitution: ' + str(possibility['constitution']) + ', '
+                'intelligence: ' + str(possibility['intelligence']) + ', '
+                'wisdom: ' + str(possibility['wisdom']) + ', '
+                'charisma: ' + str(possibility['charisma'])
+                )
 
 possibilities = []
 set_score(0, {})
