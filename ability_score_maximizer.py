@@ -22,10 +22,14 @@ def check_scores(scores):
 def set_score(ability_index,ability_scores):
     if ability_index > 5:
         if check_scores(ability_scores):
-            print(ability_scores)
+            possibilities.append(ability_scores.copy())
     else:
         for score in score_to_points:
             ability_scores[abilities[ability_index]] = score
             set_score(ability_index+1, ability_scores)
 
+possibilities = []
 set_score(0, {})
+
+for possibility in possibilities:
+    print(possibility)
