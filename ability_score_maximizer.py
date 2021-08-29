@@ -45,15 +45,18 @@ def generate_ordered_scores_obj():
         obj[i] = []
     return obj
 
+def order_possiblities(possibilities):
+    ordered_possibilities = generate_ordered_scores_obj()
+    for possibility in possibilities:
+        total_modifiers = 0
+        for score in possibility:
+            total_modifiers += determine_modifier(possibility[score])
+        ordered_possibilities[total_modifiers].append(possibility)
+    return ordered_possibilities
+
 possibilities = generates_scores(0, {}, [])
 
-ordered_possibilities = generate_ordered_scores_obj()
-
-for possibility in possibilities:
-    total_modifiers = 0
-    for score in possibility:
-        total_modifiers += determine_modifier(possibility[score])
-    ordered_possibilities[total_modifiers].append(possibility)
+ordered_possibilities = order_possiblities(possibilities)
 
 for i in range(0,19):
     if ordered_possibilities[i]:
