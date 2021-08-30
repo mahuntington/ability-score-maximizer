@@ -1,5 +1,6 @@
 import sys
 
+isCSV = False
 score_to_points = {
         15:9,
         14:7,
@@ -76,9 +77,10 @@ ordered_possibilities = order_possiblities(possibilities)
 
 for i in range(0,19):
     if ordered_possibilities[i]:
-        # print('=================')
-        # print('')
-        # print(i)
-        # print('')
-        # print('=================')
-        print_possibilities(ordered_possibilities[i], True)
+        if not isCSV:
+            print('=================')
+            print('')
+            print(i)
+            print('')
+            print('=================')
+        print_possibilities(ordered_possibilities[i], isCSV)
