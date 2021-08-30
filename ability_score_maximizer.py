@@ -31,11 +31,14 @@ def generates_scores(ability_index,ability_scores, possibilities):
             generates_scores(ability_index+1, ability_scores, possibilities)
     return possibilities
 
-def print_possibilities(possibilities):
+def print_possibilities(possibilities, isCSV):
     for possibility in possibilities:
         object_string = ''
         for ability in abilities:
-            object_string += ability + ': ' + str(possibility[ability]) + ', '
+            if isCSV:
+                object_string += str(possibility[ability]) + ', '
+            else:
+                object_string += ability + ': ' + str(possibility[ability]) + ', '
         print(object_string)
 
 def determine_modifier(score):
@@ -73,9 +76,9 @@ ordered_possibilities = order_possiblities(possibilities)
 
 for i in range(0,19):
     if ordered_possibilities[i]:
-        print('=================')
-        print('')
-        print(i)
-        print('')
-        print('=================')
-        print_possibilities(ordered_possibilities[i])
+        # print('=================')
+        # print('')
+        # print(i)
+        # print('')
+        # print('=================')
+        print_possibilities(ordered_possibilities[i], True)
