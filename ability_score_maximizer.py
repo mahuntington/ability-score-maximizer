@@ -1,3 +1,5 @@
+import sys
+
 score_to_points = {
         15:9,
         14:7,
@@ -60,9 +62,9 @@ def modify_possibilities():
             possibility[score_name] += racial_modifiers[score_name]
 
 racial_modifiers = {}
-for ability in abilities:
-    racial_modifier = int(input(ability + ": "))
-    racial_modifiers[ability] = racial_modifier
+sys.argv.pop(0)
+for ability_index in range(0, len(abilities)):
+    racial_modifiers[abilities[ability_index]] = int(sys.argv[ability_index])
 
 possibilities = generates_scores(0, {}, [])
 modify_possibilities()
