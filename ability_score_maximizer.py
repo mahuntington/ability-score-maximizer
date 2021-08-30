@@ -1,6 +1,6 @@
 import sys
 
-isCSV = False
+isCSV = True
 score_to_points = {
         15:9,
         14:7,
@@ -35,11 +35,15 @@ def generates_scores(ability_index,ability_scores, possibilities):
 def print_possibilities(possibilities, isCSV):
     for possibility in possibilities:
         object_string = ''
+        total_modifiers = 0
         for ability in abilities:
+            total_modifiers += determine_modifier(possibility[ability])
             if isCSV:
                 object_string += str(possibility[ability]) + ', '
             else:
                 object_string += ability + ': ' + str(possibility[ability]) + ', '
+        if isCSV:
+            object_string += str(total_modifiers)
         print(object_string)
 
 def determine_modifier(score):
